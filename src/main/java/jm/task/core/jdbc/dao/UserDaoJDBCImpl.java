@@ -91,7 +91,6 @@ public class UserDaoJDBCImpl implements UserDao {
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         try (Connection connection = Util.getConnection()) {
-            connection.setAutoCommit(false);
             try (PreparedStatement statement = connection.prepareStatement(getAllUsersDml)) {
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
@@ -103,11 +102,9 @@ public class UserDaoJDBCImpl implements UserDao {
                     users.add(user);
                 }
             } catch (SQLException e) {
-                connection.rollback();
                 e.printStackTrace();
             }
 
-            connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

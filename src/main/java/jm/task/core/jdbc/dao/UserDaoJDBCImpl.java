@@ -13,7 +13,7 @@ public class UserDaoJDBCImpl implements UserDao {
     private static final String dropUsersTableDdl = "DROP TABLE IF EXISTS Users";
     private static final String saveUserDml = "INSERT INTO Users (name, lastName,age ) VALUES(?,?,?)";
     private static final String removeUserByIdDml = "DELETE FROM Users WHERE id = ?";
-    private static final String getAllUsersDml = "SELECT id, name, lastName, age FROM Users";
+    private static final String getAllUsersDql = "SELECT id, name, lastName, age FROM Users";
     private static final String cleanUsersTableDml = "DELETE FROM Users";
 
     public UserDaoJDBCImpl() {
@@ -91,7 +91,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         try (Connection connection = Util.getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement(getAllUsersDml)) {
+            try (PreparedStatement statement = connection.prepareStatement(getAllUsersDql)) {
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     User user = new User();

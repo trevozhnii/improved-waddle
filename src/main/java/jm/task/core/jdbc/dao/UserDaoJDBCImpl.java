@@ -78,7 +78,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 System.out.println("remove User By Id " + id);
             } catch (SQLException e) {
                 connection.rollback();
-                throw e;
+                e.printStackTrace();
             }
 
             connection.commit();

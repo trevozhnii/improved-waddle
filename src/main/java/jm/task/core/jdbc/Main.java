@@ -10,7 +10,7 @@ public class Main {
         usi.createUsersTable();
         usi.saveUser("Ulya", "Ivanova", (byte) 18);
         usi.saveUser("Olya", "Kazakova", (byte) 21);
-        usi.saveUser("Alex", "Rootov", (byte) 45);
+        usi.saveUser("Alex", "Nizov", (byte) 45);
         usi.saveUser("Nikita", "ChegotoNePonimaushii", (byte) 60);
         usi.getAllUsers();
         usi.cleanUsersTable();

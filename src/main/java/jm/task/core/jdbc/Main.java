@@ -8,10 +8,10 @@ public class Main {
         UserServiceImpl usi = new UserServiceImpl();
 
         usi.createUsersTable();
-        usi.saveUser("Ivan", "Ivanov", (byte) 18);
-        usi.saveUser("Petr", "Petrov", (byte) 21);
-        usi.saveUser("Sveta", "Svetikova", (byte) 45);
-        usi.saveUser("Rodion", "Rodionov", (byte) 60);
+        usi.saveUser("Ulya", "Ivanova", (byte) 18);
+        usi.saveUser("Olya", "Kazakova", (byte) 21);
+        usi.saveUser("Alex", "Rootov", (byte) 45);
+        usi.saveUser("Nikita", "ChegotoNePonimaushii", (byte) 60);
         usi.getAllUsers();
         usi.cleanUsersTable();
         usi.dropUsersTable();
